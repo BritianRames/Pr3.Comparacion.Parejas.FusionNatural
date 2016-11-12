@@ -2,7 +2,6 @@ package comparación;
 
 public class Ordenar1Vector implements OrdenarVector{
     
-    
     @Override 
     public String nombreMetodo (){
         return "Ordenación por Intercambio de Parejas";
@@ -36,8 +35,12 @@ public class Ordenar1Vector implements OrdenarVector{
         tiempo = TFin - TInicio;
         de.estableceTiempo((double)(tiempo/1000000000));
         return;
-
     }
     
-    
+    @Override
+    public void imprimeVector(int[] v){
+        for(int x=0;x<v.length;x++) {
+           System.out.printf(v[x] + "\n");
+        }
+    }
 }

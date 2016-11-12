@@ -19,22 +19,33 @@ public class ComparaMetodos {
         System.out.println("Introduzca tamaño del vector: ");
         int tam = reader.nextInt();
         
-        int [] v = GeneraCaso.generaVector(tam, true);
+        int [] v1 = GeneraCaso.generaVector(tam, true);
+        int [] v2 = GeneraCaso.generaVector(tam, true);
+        ov.imprimeVector(v1);
+        CompruebaCaso.compruebaVector(v1,tam);
+        ov.ordena(v1, de);
+        ov.imprimeVector(v1);
+        CompruebaCaso.compruebaVector(v1,tam);
         
-        ov.ordena(v, de);
-        o2v.ordena(v, de2);
         
         System.out.print("El tiempo de ejecución del algoritmo \'"
                 +ov.nombreMetodo()+"\' en Java para "+tam+" numeros es de "
                 +de.dameTiempo()+" segundos, con " + de.dameComparaciones() + 
                 " comparaciones y " + de.dameMovimientos() + " movimientos.\n");
+        
+        System.out.println("------------------------------------------------------------------------");       
+        o2v.imprimeVector(v2);
+        CompruebaCaso.compruebaVector(v2,tam);
+        o2v.ordena(v2, de2);
+        o2v.imprimeVector(v2);
+        CompruebaCaso.compruebaVector(v2,tam);
                 
         System.out.print("El tiempo de ejecución del algoritmo \'"
                 +o2v.nombreMetodo()+"\' en Java para "+tam+" numeros es de "
                 +de2.dameTiempo()+" segundos, con " + de2.dameComparaciones() + 
                 " comparaciones y " + de2.dameMovimientos() + " movimientos.\n");
         
-        DatosEstadisticos deP = new DatosEstadisticos();
+        /*DatosEstadisticos deP = new DatosEstadisticos();
         DatosEstadisticos de2P = new DatosEstadisticos();
         Ordenar1Vector ovP = new Ordenar1Vector();
         Ordenar2Vector o2vP = new Ordenar2Vector();
@@ -57,6 +68,7 @@ public class ComparaMetodos {
                 +o2vP.nombreMetodo()+"\' en Java para "+tamP+" numeros es de "
                 +de2P.dameTiempo()+" segundos, con " + de2P.dameComparaciones() + 
                 " comparaciones y " + de2P.dameMovimientos() + " movimientos.\n");
+        */
     }    
 
 }

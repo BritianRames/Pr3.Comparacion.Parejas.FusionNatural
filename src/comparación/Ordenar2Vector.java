@@ -17,19 +17,19 @@ public class Ordenar2Vector implements OrdenarVector {
         int[] auxvec;
         do {
             cambio = false;
-            lder = v.length; 
-            otral = v.length;
+            lder = v.length-1; 
+            otral = v.length-1;
             lizq = 0;
             lsal = 0;
             movlizq = 1;
             movlsal = 1;
             auxvec = new int[v.length];
             while (lizq != lder) {
-                if(v[lizq] >= v[lder]) {
+                if(v[lizq] > v[lder]) {
                     aux = lizq;
                     lizq = lder;
                     lder = aux;
-                    movlizq -= 1;
+                    movlizq *= -1;
                 }
                 de.añadeComparacion();
                 auxvec[lsal] = v[lizq];
@@ -46,7 +46,7 @@ public class Ordenar2Vector implements OrdenarVector {
                     } while (v[lder+movlizq] <= v[lder]);
                     de.estableceComparaciones(-1);
                     cambio = true;
-                    movlsal -= 1;
+                    movlsal *= -1;
                     aux = lsal;
                     lsal = otral;
                     otral = aux;
@@ -54,12 +54,12 @@ public class Ordenar2Vector implements OrdenarVector {
                 de.añadeComparacion();
             }
             auxvec[lsal] = v[lizq];
-            for(int i=1;i<v.length;i++) {
+            for(int i=0;i<v.length;i++) {
                 v[i] = auxvec[i];
                 de.añadeMovimiento();
             }
             
-        } while(cambio != false);
+        } while(cambio);
         double t_fin = currentTimeMillis();
         de.estableceTiempo((t_fin - t_inicio) / 1000);
         return;
@@ -67,8 +67,7 @@ public class Ordenar2Vector implements OrdenarVector {
     @Override
     public void imprimeVector(int[] v){
         for(int x=0;x<v.length;x++) {
-            System.out.printf(v[x] + ",");
+            System.out.printf(v[x] + "\n");
         }
-        System.out.printf("\n");
     }  
 }
