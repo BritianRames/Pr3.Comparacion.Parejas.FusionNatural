@@ -14,18 +14,18 @@ public class Ordenar2Vector implements OrdenarVector {
         double t_inicio = currentTimeMillis();
         boolean cambio = true;
         int lder, otral, lizq, lsal, movlizq, movlsal, aux;
-        int[] auxvec = new int[v.length-1];
+        int[] auxvec;
         do {
             cambio = false;
-            lder = v.length-1; 
-            otral = v.length-1;
+            lder = v.length; 
+            otral = v.length;
             lizq = 0;
             lsal = 0;
             movlizq = 1;
             movlsal = 1;
-            
+            auxvec = new int[v.length];
             while (lizq != lder) {
-                if(v[lizq] > v[lder]) {
+                if(v[lizq] >= v[lder]) {
                     aux = lizq;
                     lizq = lder;
                     lder = aux;
